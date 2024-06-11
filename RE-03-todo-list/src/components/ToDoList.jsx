@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
+// main function
 const ToDoList = () => {
-  /* la docu va dentro de las llaves, porque es JS creo ...
-  aqui va el estado de la funcion con su dato inicial y lo que va a hacer */
+/* Initial state del input */
   const [inputValue, setInputValue] = useState('')
 
   // estado loco agregado para la lista de tareas
@@ -11,9 +11,17 @@ const ToDoList = () => {
   const handleAdd = () => {
     console.log('agregue este input', inputValue)
     if (inputValue.trim()) {
-      setTodos([...todos, inputValue])
+      setTodos([...todos, inputValue]) // checar si agregando los ... en inputValue tiene el mismo resultado
       setInputValue('')
     }
+  }
+
+  // aqui va mi invento
+
+  // function handleDelete
+  const handleDeleteItem = (i) => {
+    console.log('comparo el index para quitar el input de la lista todo', i.value)
+    setTodos(todos.filter((todos, index) => i !== index))
   }
 
   return (
@@ -26,7 +34,9 @@ const ToDoList = () => {
       />
 
       <button onClick={handleAdd}>Agregar</button>
-      <ul />
+      <ul>
+        <li />
+      </ul>
 
     </>
   )
