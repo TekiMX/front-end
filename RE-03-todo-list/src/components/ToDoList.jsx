@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ToDoItem from './ToDoItem'
 
 // main function
 const ToDoList = () => {
@@ -21,7 +22,7 @@ const ToDoList = () => {
   // function handleDelete
   const handleDeleteItem = (i) => {
     console.log('comparo el index para quitar el input de la lista todo', i.value)
-    setTodos(todos.filter((todos, index) => i !== index))
+    setTodos(todos.filter((todo, index) => i !== index))
   }
 
   return (
@@ -35,7 +36,13 @@ const ToDoList = () => {
 
       <button onClick={handleAdd}>Agregar</button>
       <ul>
-        <li />
+        {todos.map((todo, i) => (
+          <ToDoItem
+            key={i}
+            todo={todo}
+            handleDelete={() => handleDeleteItem(i)}
+          />
+        ))}
       </ul>
 
     </>

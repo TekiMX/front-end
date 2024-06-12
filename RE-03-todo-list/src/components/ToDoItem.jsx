@@ -13,3 +13,4 @@ const ToDoItem = ({ todo, handleDelete }) => {
 }
 
 export default ToDoItem
+// componente con props
