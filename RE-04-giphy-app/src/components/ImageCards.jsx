@@ -5,8 +5,8 @@ const ImageCards = ({ url, title }) => {
     <div className='image-container'>
       <img
         className='image-view'
-        src='{url}'
-        alt='{title}'
+        src={url}
+        alt={title}
       />
     </div>
   )
