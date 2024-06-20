@@ -19,7 +19,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    'react/prop-types': 'off' ,
-    'no-unused-vars': 'off' // disble the awfull message 'is assigned but never used'
+    "react/prop-types": "off" ,
+    "no-unused-vars": "off"
   },
 }
