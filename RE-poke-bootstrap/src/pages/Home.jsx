@@ -16,6 +16,17 @@ const Home = () => {
     setSearch(e.target.value)
   }
 
+  const filteredPokemons = pokemons.filter(pokemonsList => {
+    if (search === '') {
+      return pokemonsList
+    } else if (pokemonsList.name.toLowerCase().includes(search.toLowerCase())) {
+      // returns filtered pokemonsList
+      return pokemonsList
+    } else { return false }
+  }
+
+  )
+
   return (
     <>
       <h1>Home</h1>
@@ -31,7 +42,7 @@ const Home = () => {
       <div className='container'>
         <div className='row'>
           {
-            pokemons.map(pokemon => (
+            filteredPokemons.map(pokemon => (
 
               <div className='col-sm-4 mb-3 mb-sm-0' key={pokemon.name}>
                 <div className='card'>
