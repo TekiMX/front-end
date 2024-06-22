@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [pokemons, setPokemons] = useState([]) // Pokemons list
@@ -47,18 +48,17 @@ const Home = () => {
               <div className='col-sm-4 mb-3 mb-sm-0' key={pokemon.name}>
                 <div className='card'>
                   <div className='card-body'>
-                    <h5 className='card-title'>{pokemon.name}</h5>
+                    <Link
+                      className='card-title'
+                      to={`/pokemon/${pokemon.url.split('/')[6]}`}
+                    >
+                      {pokemon.name}
+                    </Link>
                     <img
                       className='card-img-top'
                       src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url.split('/')[6]}.png`}
                       alt={pokemon.name}
                     />
-                    {/*
-                   pokemon.types.map(type => (
-
-                     <li className='card-text' key={type.slot}> {type.name}</li>
-                   ))
-                  */}
                   </div>
                 </div>
               </div>
