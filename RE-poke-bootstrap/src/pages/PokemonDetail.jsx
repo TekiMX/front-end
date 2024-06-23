@@ -1,4 +1,4 @@
-import { useState, useEffec, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 const PokemonDetail = () => {
@@ -18,11 +18,11 @@ const PokemonDetail = () => {
           <h3>{pokemon?.name}</h3>
         </div>
         <div className='card-body'>
-          <div className='row'>
-            <div className='col-md-4'>
+          <div className='d-flex flex-row mb-3'>
+            <div className='col-md-3'>
               <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={pokemon?.name} className='img-fluid' />
             </div>
-            <div className='col-md-8'>
+            <div className='col-md-3'>
               <table className='table'>
                 <thead>
                   <tr>
@@ -35,6 +35,22 @@ const PokemonDetail = () => {
                     <tr key={stat.stat.name}>
                       <td>{stat.stat.name}</td>
                       <td>{stat.base_stat}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className='col-md-1'>
+              <table className='table'>
+                <thead>
+                  <tr>
+                    <th>Types</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {pokemon?.types.map(type => (
+                    <tr key={type.type.name}>
+                      <td>{type.type.name}</td>
                     </tr>
                   ))}
                 </tbody>
